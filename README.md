@@ -1,17 +1,18 @@
-🚀 Project Overview
+# 🚀 Project Overview
 
 This project demonstrates how to build a lightweight LLM-powered question-answering application using a local model instead of relying entirely on cloud-based APIs.
 
 The application uses:
 
-Streamlit for the web interface
-LangChain for prompt management and LLM chaining
-Ollama for running LLMs locally
-Python for application development
-python-dotenv for environment configuration
+- Streamlit for the web interface
+- LangChain for prompt management and LLM chaining
+- Ollama for running LLMs locally
+- Python for application development
+- python-dotenv for environment configuration
 
 The application follows a simple pipeline:
 
+```text
 User Query
     ↓
 ChatPromptTemplate
@@ -167,5 +168,3 @@ Building a simple interactive GenAI application
 👩‍💻 Author
 
 Prerna Kumari
-
-Feel free to explore the repository, experiment with different Ollama models, and extend the application with your own GenAI features.
