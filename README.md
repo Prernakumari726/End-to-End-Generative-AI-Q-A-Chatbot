@@ -1,127 +1,122 @@
-#🚀 Project Overview
-This project demonstrates how to build a lightweight LLM-powered question-answering application using a local model instead of relying entirely on cloud-based APIs.
+# 🚀 Project Overview
+
+This project demonstrates how to build a lightweight **LLM-powered question-answering application** using a local model instead of relying entirely on cloud-based APIs.
 
 The application uses:
+- **Streamlit** for the web interface  
+- **LangChain** for prompt management and LLM chaining  
+- **Ollama** for running LLMs locally  
+- **Python** for application development  
+- **python-dotenv** for environment configuration  
 
-Streamlit for the web interface
+---
 
-LangChain for prompt management and LLM chaining
+## 📊 Pipeline Flow
 
-Ollama for running LLMs locally
-
-Python for application development
-
-python-dotenv for environment configuration
-
-The application follows a simple pipeline:
-
-Plaintext
 User Query
-    ↓
+↓
 ChatPromptTemplate
-    ↓
+↓
 Ollama LLM
-    ↓
+↓
 StrOutputParser
-    ↓
+↓
 Generated Response
-✨ Features
-💬 Ask questions through an interactive chatbot interface
 
-🤖 Run LLMs locally using Ollama
+Code
 
-🔄 Select between different Ollama models
+---
 
-🌡️ Adjust model temperature from the sidebar
+## ✨ Features
 
-🔗 Use LangChain's prompt and chaining framework
+- 💬 Ask questions through an interactive chatbot interface  
+- 🤖 Run LLMs locally using Ollama  
+- 🔄 Select between different Ollama models  
+- 🌡️ Adjust model temperature from the sidebar  
+- 🔗 Use LangChain's prompt and chaining framework  
+- ⚡ Generate responses locally without requiring a paid LLM API  
+- 🖥️ Simple and interactive Streamlit interface  
+- ⚠️ Basic error handling for model/API-related issues  
 
-⚡ Generate responses locally without requiring a paid LLM API
+---
 
-🖥️ Simple and interactive Streamlit interface
+## 🛠️ Tech Stack
 
-⚠️ Basic error handling for model/API-related issues
+| Technology            | Purpose                                      |
+|------------------------|----------------------------------------------|
+| Python                 | Application development |
+| Streamlit              | Web application interface |
+| LangChain              | LLM orchestration and prompt chaining |
+| Ollama                 | Local LLM execution |
+| ChatPromptTemplate     | Prompt construction |
+| StrOutputParser        | Converts model output into text |
+| python-dotenv          | Environment configuration |
 
-🛠️ Tech Stack
-Technology	Purpose
-Python	Application development
-Streamlit	Web application interface
-LangChain	LLM orchestration and prompt chaining
-Ollama	Local LLM execution
-ChatPromptTemplate	Prompt construction
-StrOutputParser	Converts model output into text
-python-dotenv	Environment configuration
-🤖 Supported Models
+---
+
+## 🤖 Supported Models
+
 The application currently provides the following model options:
+- llama3.2:1b  
+- gemma3  
+- gemma3:1b  
 
-llama3.2:1b
+> These models must be available locally through Ollama before running the application.
 
-gemma3
+---
 
-gemma3:1b
+## ⚙️ Installation & Setup
 
-These models must be available locally through Ollama before running the application.
-
-⚙️ Installation & Setup
-1. Clone the repository
-Bash
+### 1. Clone the repository
+```bash
 git clone https://github.com/your-username/ollama-llm-chatbot.git
 cd ollama-llm-chatbot
 2. Create a virtual environment
-Bash
+bash
 python -m venv venv
 Activate the environment:
 
 Windows:
 
-Bash
+bash
 venv\Scripts\activate
 macOS/Linux:
 
-Bash
+bash
 source venv/bin/activate
 3. Install dependencies
-Bash
+bash
 pip install -r requirements.txt
-The project requirements include LangChain packages, Ollama integration, Streamlit, and supporting libraries.
-
 🦙 Install and Configure Ollama
 Install Ollama on your system and make sure the Ollama service is running.
-
 Then download the models you want to use.
 
-For example:
+Example:
 
-Bash
+bash
 ollama pull llama3.2:1b
-You can also pull the other supported models:
+Other supported models:
 
-Bash
+bash
 ollama pull gemma3
 ollama pull gemma3:1b
-Verify the installed models using:
+Verify installed models:
 
-Bash
+bash
 ollama list
 ▶️ Run the Application
-Start the Streamlit application using:
-
-Bash
+bash
 streamlit run app.py
 Streamlit will provide a local URL where you can access the chatbot.
 
 🎛️ How to Use
-Step 1 — Enter a Query
-Enter your question in the text input field.
-
+Enter a Query  
 Example:
 
+Code
 What is Generative AI?
-
-Step 2 — Select a Model
-Choose an Ollama model from the sidebar.
-
-Available models:
+Select a Model  
+Choose from:
 
 llama3.2:1b
 
@@ -129,31 +124,30 @@ gemma3
 
 gemma3:1b
 
-Step 3 — Adjust Temperature
-Use the temperature slider to control the response generation.
+Adjust Temperature
 
-Lower temperature → more focused and predictable responses
+Lower → focused, predictable responses
 
-Higher temperature → more varied and creative responses
+Higher → varied, creative responses
 
-Step 4 — Generate the Answer
+Generate the Answer  
 Click the Answer button to generate the response.
 
 🧠 LangChain Workflow
 The application creates a prompt using ChatPromptTemplate:
 
-Python
+python
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant."),
     ("human", "Question: {Question}")
 ])
-The prompt is then connected to the Ollama model and output parser:
+Connected to the Ollama model and parser:
 
-Python
+python
 chain = prompt | model | parser
-The chain follows:
+Flow:
 
-Plaintext
+Code
 Prompt
   ↓
 Ollama LLM
@@ -161,9 +155,9 @@ Ollama LLM
 Output Parser
   ↓
 Text Response
-The final response is generated using:
+Final response:
 
-Python
+python
 result = chain.invoke({
     "Question": query
 })
